@@ -1,0 +1,8 @@
+flask
+groq
+PyPDF2
+langchain-text-splitters
+faiss-cpu
+numpy
+sentence-transformers
+python-dotenv
