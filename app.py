@@ -6,11 +6,16 @@ import faiss
 import numpy as np
 import os
 import pickle
-from sentence_transformers import SentenceTransformer
+
 from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
-
+def get_embedding(text):
+    response = client.embeddings.create(
+        model="nomic-embed-text-v1_5",  
+        input=text
+    )
+    return response.data[0].embedding
 # ─── Config ───────────────────────────────────────────────────────────────────
 GROQ_API_KEY = os.environ.get("GROQ_API_KEY", "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")
 MODEL_NAME   = "llama-3.3-70b-versatile"   # LLaMA 3.3 70B on Groq
